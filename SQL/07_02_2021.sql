@@ -1,3 +1,6 @@
+
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+FLUSH PRIVILEGES;
 /* CREATE MEDICAL SHOP DB */
 
 create database MEDICAL_SHOP;
