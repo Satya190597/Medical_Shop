@@ -2,7 +2,7 @@ const Category = require("../models/category");
 
 // CONTROLLER - Create Category.
 exports.CreateCategory = (request, response) => {
-  const category = new Category({ CATEGORY_NAME: request.body.name });
+  const category = new Category(request.body);
   Category.create(category, function (error, category) {
     return response.json(category);
   });
@@ -10,7 +10,7 @@ exports.CreateCategory = (request, response) => {
 
 // CONTROLLER - Update Category.
 exports.UpdateCategory = (request, response) => {
-  const categoryName = request.body.name;
+  const categoryName = request.body.categoryName;
   const categoryId = request.params.id;
   Category.update(categoryId, categoryName, function (error, result) {
     return response.json(result);

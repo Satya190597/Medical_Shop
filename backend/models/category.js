@@ -1,7 +1,7 @@
 const mysql = require("../utility/database-connection");
 
 const Category = function (category) {
-  this.CATEGORY_NAME = category.CATEGORY_NAME;
+  this.CATEGORY_NAME = category.categoryName;
 };
 
 /**
