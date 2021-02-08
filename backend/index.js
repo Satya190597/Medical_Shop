@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const categoryRoute = require("./routes/category");
+const productRoute = require("./routes/product");
 
 // Create an express application.
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors());
 const port = process.env.PORT ? process.env.PORT : 4001;
 
 app.use("/api", categoryRoute);
+app.use("/api", productRoute);
 
 app.get("/", function (request, response) {
   return response.json({
