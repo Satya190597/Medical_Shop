@@ -1,4 +1,5 @@
 const express = require("express");
+const { productRouteValidation } = require("../utility/route-validation");
 const {
   GetAllProduct,
   CreateProduct,
@@ -12,10 +13,10 @@ const router = express.Router();
 router.get("/product/all", GetAllProduct);
 
 // [POST] - Create Product.
-router.post("/product/create", CreateProduct);
+router.post("/product/create", productRouteValidation(), CreateProduct);
 
 // [PUT] - Update Product.
-router.put("/product/update/:id", UpdateProduct);
+router.put("/product/update/:id", productRouteValidation(), UpdateProduct);
 
 // [DELETE] - Delete Product.
 router.delete("/product/delete/:id", DeleteProduct);

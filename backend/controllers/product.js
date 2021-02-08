@@ -1,7 +1,15 @@
 const Product = require("../models/product");
+const {validationResult} = require("express-validator");
 
 // CONTROLLER - Create Product.
 exports.CreateProduct = function (request, response) {
+
+  // Check for validation result - in request.
+  const errors = validationResult(request);
+  if(!errors.isEmpty()) {
+    return response.status(400).json({error:errors.array()})
+  }
+
   const newProduct = new Product(request.body);
   Product.create(newProduct, function (error, result) {
     return response.json(result);
@@ -18,6 +26,13 @@ exports.DeleteProduct = function (request, response) {
 
 // CONTROLLER - Update Product.
 exports.UpdateProduct = function (request, response) {
+
+  // Check for validation result - in request.
+  const errors = validationResult(request);
+  if(!errors.isEmpty()) {
+    return response.status(400).json({error:errors.array()})
+  }
+  
   const updatedProduct = new Product(request.body);
   const productId = request.params.id;
   Product.update(productId, updatedProduct, function (error, result) {

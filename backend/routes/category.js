@@ -1,4 +1,5 @@
 const express = require("express");
+const {categoryRouteValidation} = require("../utility/route-validation");
 const {
   CreateCategory,
   DeleteCategory,
@@ -12,10 +13,10 @@ const router = express.Router();
 router.get("/category/all/", GetAllCategory);
 
 // [POST] - Create Category.
-router.post("/category/create/", CreateCategory);
+router.post("/category/create/", categoryRouteValidation(), CreateCategory);
 
 // [PUT] - Update Category.
-router.put("/category/update/:id", UpdateCategory);
+router.put("/category/update/:id", categoryRouteValidation(), UpdateCategory);
 
 // [DELETE] - Delete Category.
 router.delete("/category/delete/:id", DeleteCategory);
