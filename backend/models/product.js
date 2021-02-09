@@ -58,7 +58,24 @@ Product.update = function (productId, productDetail, result) {
  * [Get All Product]
  */
 Product.all = function (result) {
-  const sql = "SELECT * FROM PRODUCT";
+  const sql = `SELECT 
+  A.PRODUCT_STOCK_ID,
+  A.PRODUCT_ID,
+  A.PRODUCT_QUANTITY,
+  B.PRODUCT_NAME,
+  B.PRODUCT_USES,
+  B.PRODUCT_DESCRIPTION,
+  B.PRODUCT_COMPANY_NAME,
+  B.PRODUCT_PRICE,
+  B.PRODUCT_DISCOUNT,
+  B.PRODUCT_LOCATION_IN_STORE,
+  B.DATE_OF_VALIDITY,
+  C.CATEGORY_ID,
+  C.CATEGORY_NAME
+  FROM PRODUCT_STOCK A, PRODUCT B, CATEGORY C
+  WHERE
+  A.PRODUCT_ID = B.PRODUCT_ID AND 
+  B.PRODUCT_CATEGORY_ID = C.CATEGORY_ID; `;
   mysql.query(sql, function (error, response) {
     if (error) {
       result(error, null);

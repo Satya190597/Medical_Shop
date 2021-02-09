@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const categoryRoute = require("./routes/category");
 const productRoute = require("./routes/product");
+const stockRoute = require("./routes/product-stock");
 
 // Create an express application.
 const app = express();
@@ -20,6 +21,7 @@ const port = process.env.PORT ? process.env.PORT : 4001;
 
 app.use("/api", categoryRoute);
 app.use("/api", productRoute);
+app.use("/api", stockRoute);
 
 app.get("/", function (request, response) {
   return response.json({

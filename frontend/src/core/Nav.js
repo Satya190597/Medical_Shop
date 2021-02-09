@@ -13,7 +13,7 @@ const Nav =  () => {
                                 </Link>
                             </li>
                             <li class="nav-item">
-                                <Link to="/category/create" className="nav-link">
+                                <Link to="/category/manage" className="nav-link">
                                     Manage category
                                 </Link>
                             </li>

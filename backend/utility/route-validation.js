@@ -42,3 +42,18 @@ exports.categoryRouteValidation = () => {
         .isLength({min:3})
     ]
 }
+
+exports.stockRouteValidation = () => {
+    return [
+        check("productId")
+        .isLength({min:1})
+        .withMessage("Product Id is a required field.")
+        .isInt()
+        .withMessage("Product Id must be in integer."),
+        check("productQuantity")
+        .isLength({min:1})
+        .withMessage("Product quantity must be in integer.")
+        .isInt()
+        .withMessage("Product quantity must be in integer.")
+    ]
+}
