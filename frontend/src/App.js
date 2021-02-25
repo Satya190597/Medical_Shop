@@ -5,6 +5,7 @@ import {BrowserRouter,Switch,Route} from "react-router-dom";
 import Home from "./core/Home";
 import CreateCategory from "./category/CreateCategory";
 import ManageCategory from "./category/ManageCategory";
+import CreateProduct from "./product/CreateProduct";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
             <Route path="/" exact component={Home}></Route>
             <Route path="/category/create" exact component={CreateCategory}></Route>
             <Route path="/category/manage" exact component={ManageCategory}></Route>
+            <Route path="/product/create" exact component={CreateProduct}></Route>
         </Switch>
     </BrowserRouter>
   );

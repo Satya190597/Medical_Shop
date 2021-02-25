@@ -17,6 +17,11 @@ const Nav =  () => {
                                     Manage category
                                 </Link>
                             </li>
+                            <li class="nav-item">
+                                <Link to="/product/create" className="nav-link">
+                                    Create A product
+                                </Link>
+                            </li>
                         </ul>
                 </div>
             </div>
