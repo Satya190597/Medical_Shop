@@ -22,6 +22,11 @@ const Nav =  () => {
                                     Create A product
                                 </Link>
                             </li>
+                            <li class="nav-item">
+                                <Link to="/product/list" className="nav-link">
+                                    Product List
+                                </Link>
+                            </li>
                         </ul>
                 </div>
             </div>
